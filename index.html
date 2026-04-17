@@ -17,7 +17,6 @@
       font-family: 'DM Sans', sans-serif;
     }
 
-    /* ── Emoji row ── */
     .emoji-row {
       display: flex;
       gap: 32px;
@@ -45,7 +44,6 @@
       transform: scale(1.15) translateY(-6px);
     }
 
-    /* ── Popup overlay ── */
     .popup-overlay {
       position: fixed;
       inset: 0;
@@ -70,7 +68,6 @@
       backdrop-filter: blur(2px);
     }
 
-    /* ── Popup card ── */
     .popup-card {
       position: relative;
       z-index: 1;
@@ -78,7 +75,7 @@
       border: 1px solid #e8e8e8;
       border-radius: 20px;
       padding: 36px 40px 32px;
-      max-width: 480px;
+      max-width: 500px;
       width: 92vw;
       max-height: 85vh;
       overflow-y: auto;
@@ -118,12 +115,7 @@
 
     .popup-close:hover { background: #e0e0e0; color: #111; }
 
-    /* ── Popup content ── */
-    .popup-emoji {
-      font-size: 2.4rem;
-      display: block;
-      margin-bottom: 6px;
-    }
+    .popup-emoji { font-size: 2.4rem; display: block; margin-bottom: 6px; }
 
     .popup-title {
       font-family: 'DM Serif Display', serif;
@@ -147,9 +139,9 @@
       color: #111;
       margin-bottom: 4px;
       margin-top: 16px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       display: block;
     }
 
@@ -170,29 +162,55 @@
       font-size: 0.78rem;
       color: #aaa;
       font-style: italic;
-      margin-top: 8px;
+      margin-top: 4px;
       line-height: 1.6;
     }
+
+    .popup-body .cta {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #f0f0f0;
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .popup-body .cta a {
+      color: #111;
+      font-weight: 500;
+      word-break: break-all;
+    }
+
+    .popup-body .cta a:hover { text-decoration: underline; }
 
     .divider {
       border: none;
       border-top: 1px solid #f0f0f0;
       margin: 16px 0;
     }
+
+    .learnt-block {
+      background: #fafafa;
+      border-left: 3px solid #ddd;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Emoji Row -->
   <div class="emoji-row" role="list">
     <button class="emoji-btn" data-id="0" aria-label="Broetry Bot" role="listitem">🤖</button>
     <button class="emoji-btn" data-id="1" aria-label="30 days of Midjourney" role="listitem">🖼️</button>
-    <button class="emoji-btn" data-id="2" aria-label="Cover letter lab" role="listitem">📝</button>
-    <button class="emoji-btn" data-id="3" aria-label="Omar the tech journalist" role="listitem">👤</button>
+    <button class="emoji-btn" data-id="2" aria-label="Cover Letter Lab" role="listitem">📝</button>
+    <button class="emoji-btn" data-id="3" aria-label="Omar the Tech Journalist" role="listitem">👤</button>
     <button class="emoji-btn" data-id="4" aria-label="Meet the Glimmerwhims" role="listitem">📚</button>
   </div>
 
-  <!-- Popup -->
   <div class="popup-overlay" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
     <div class="popup-backdrop" id="popup-backdrop"></div>
     <div class="popup-card" id="popup-card">
@@ -212,18 +230,25 @@
         subtitle: "A LinkedIn takeover that damaged my writing creds",
         body: `
           <p>I created an AI agent to ideate, create, and share LinkedIn posts for 30 days. I did leave room for human-in-the-loop review but kept my modifications to a minimum.</p>
+
           <span class="section-label">✅ What worked</span>
           <p>30 posts created and shared. The automation worked for the most part with just a few occasional interventions to correct any technical glitches.</p>
+
           <span class="section-label">❌ What didn't work</span>
           <p>The content itself was extremely cringe. A mix of LinkedIn broetry, clichés, uninspiring formatting, expected engagement bait. The images were by far the worst part of the experiment. Creating images for abstract concepts requires human-level thinking and complex associations that AI is unable to make.</p>
+
+          <span class="section-label">💡 What I learnt</span>
+          <div class="learnt-block">Creating AI slop is the equivalent of carrying a fake Chanel bag.</div>
+
           <hr class="divider"/>
           <span class="section-label">🛠 Tech stack</span>
           <ul>
             <li><span>🔧</span><span><strong>Agent</strong> — Make.com</span></li>
             <li><span>✍️</span><span><strong>Research + writing</strong> — ChatGPT</span></li>
             <li><span>🎨</span><span><strong>Image generation</strong> — Dall-e</span></li>
-            <li><span>☁️</span><span><strong>Cloud</strong> — Google Drive</span></li>
+            <li><span>☁️</span><span><strong>Cloud</strong> — Google</span></li>
           </ul>
+
           <hr class="divider"/>
           <span class="section-label">🌿 Eco footprint</span>
           <ul>
@@ -233,13 +258,51 @@
             <li><span>🌳</span><span>1–3 months for a tree to absorb the CO₂ emitted</span></li>
           </ul>
           <p class="eco-note">* These are just guesstimates, hard to calculate given the opacity around AI tech. Does not include model training cost.</p>
+
+          <div class="cta">
+            The Broetry Bot has been retired for good, but you can check out the Make flow here to create your own.<br/>
+            <a href="https://drive.google.com/file/d/1JPgVFy2aTULOgMAx4odSXJhWi7PJdDiQ/view" target="_blank" rel="noopener">View the Make flow →</a>
+          </div>
         `
       },
       {
         emoji: "🖼️",
         title: "30 Days of Midjourney",
         subtitle: "A social experiment on AI copyright",
-        body: `<p>Coming soon.</p>`
+        body: `
+          <p>I created an Instagram account where I posted AI art daily for a month. The catch? Not all artworks were created by me. Some were taken from other 'AI artists.' I wanted to test attitudes towards AI copyright.</p>
+
+          <span class="section-label">✅ What worked</span>
+          <p>I immediately found myself in a community of AI enthusiasts with followers, likes, and comments coming in easily via the algorithm. I found people eager to create and learn from one another, trying to stay on top of all the new developments.</p>
+
+          <span class="section-label">❌ What didn't work</span>
+          <p>I didn't really uncover any thoughts, ideas, or conversations around copyright for AI art — legal, ethical, or even personal opinions were not shared easily. While I don't agree with the systematic theft without consent for training models, people using AI art showed me how deep a desire each of us has to create beautiful things.</p>
+
+          <span class="section-label">💡 What I learnt</span>
+          <div class="learnt-block">It's complicated, let's talk…</div>
+
+          <hr class="divider"/>
+          <span class="section-label">🛠 Tech stack</span>
+          <ul>
+            <li><span>🎨</span><span><strong>Images</strong> — Midjourney</span></li>
+            <li><span>👂</span><span><strong>Social listening</strong> — Make.com</span></li>
+            <li><span>📸</span><span><strong>Social platform</strong> — Instagram</span></li>
+          </ul>
+
+          <hr class="divider"/>
+          <span class="section-label">🌿 Eco footprint</span>
+          <ul>
+            <li><span>💧</span><span>100–400 glasses of drinking water</span></li>
+            <li><span>💡</span><span>250–1000 hours of powering a 60W bulb</span></li>
+            <li><span>📱</span><span>1200–5000 full phone recharges</span></li>
+            <li><span>🌳</span><span>100 days – 1.2 years for a tree to absorb the CO₂ emitted</span></li>
+          </ul>
+          <p class="eco-note">* These are just guesstimates, hard to calculate given the opacity around AI tech. Does not include model training cost.</p>
+
+          <div class="cta">
+            The account is still alive, but I don't want to burn more resources to feed the algorithm. I just want to have a conversation around the environmental impact of AI.
+          </div>
+        `
       },
       {
         emoji: "📝",
@@ -247,10 +310,16 @@
         subtitle: "A vibe-coded cover letter generator that's useless but fun",
         body: `
           <p>I want AI to work on the boring tasks (filling timesheets?) so I can do what I love – write. To help other advertising folks like me, I created an AI app to write cover letters. An unserious experiment with some serious laughs.</p>
+
           <span class="section-label">✅ What worked</span>
           <p>Letting AI handle the coding made this a fast, low-effort experiment. I did the writing which reduced the AI eco-footprint and kept the letters actually interesting. Nobody knows the inside humour of an agency like a 20-year veteran 😎</p>
+
           <span class="section-label">❌ What didn't work</span>
           <p>"Vibe-coded" means trying to fix even one small thing (like changing the colour of a button) would throw everything into chaos. It took a lot of prompting and design compromises to arrive at the final output.</p>
+
+          <span class="section-label">💡 What I learnt</span>
+          <div class="learnt-block">"The more you know, the more you know you don't know." — Aristotle (at least according to the internet). See also: <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank" rel="noopener">Dunning–Kruger effect</a>.</div>
+
           <hr class="divider"/>
           <span class="section-label">🛠 Tech stack</span>
           <ul>
@@ -258,6 +327,7 @@
             <li><span>🎨</span><span><strong>Images</strong> — Midjourney</span></li>
             <li><span>🚀</span><span><strong>Build</strong> — Github</span></li>
           </ul>
+
           <hr class="divider"/>
           <span class="section-label">🌿 Eco footprint</span>
           <ul>
@@ -267,19 +337,87 @@
             <li><span>🌳</span><span>5–20 days for a tree to absorb the CO₂ emitted</span></li>
           </ul>
           <p class="eco-note">* These are just guesstimates, hard to calculate given the opacity around AI tech. Does not include model training cost.</p>
+
+          <div class="cta">
+            This experiment has a much smaller carbon footprint, so I don't feel guilty keeping it alive. Go explore it and please share your feedback 🙂<br/>
+            <a href="https://aihappyhour.github.io/Cover-Letter-Generator/" target="_blank" rel="noopener">Open Cover Letter Lab →</a>
+          </div>
         `
       },
       {
         emoji: "👤",
         title: "Omar the Tech Journalist",
         subtitle: "An AI influencer talking to people about AI",
-        body: `<p>Coming soon.</p>`
+        body: `
+          <p>I created an AI avatar on LinkedIn who reached out to other AI enthusiasts to see if they could spot AI when they see it. He quickly gained acceptance, a supportive network (of humans hopefully) and even the attention of a CEO or two. <a href="https://drive.google.com/file/d/1-GEppU24ggFqvXN98mZawvz8Y3CgkS72/view" target="_blank" rel="noopener">Would you hire Omar? →</a></p>
+
+          <span class="section-label">✅ What worked</span>
+          <p>Using a variety of AI tools, the AI avatar was surprisingly easy to create. It did take time and effort, but anyone can create an online persona in hours good enough to fool some of the people some of the time.</p>
+
+          <span class="section-label">❌ What didn't work</span>
+          <p>Maintaining privacy (for free) was the hard part. I didn't want this AI avatar to be associated with my real identity in any way. LinkedIn eventually asked Omar for verification, and I had to let him go. RIP 🪦</p>
+
+          <span class="section-label">💡 What I learnt</span>
+          <div class="learnt-block">AI is great for scams.</div>
+
+          <hr class="divider"/>
+          <span class="section-label">🛠 Tech stack</span>
+          <ul>
+            <li><span>✍️</span><span><strong>Research + writing</strong> — ChatGPT</span></li>
+            <li><span>🎨</span><span><strong>Images</strong> — Midjourney, Nano Banana</span></li>
+            <li><span>💼</span><span><strong>Social platform</strong> — LinkedIn</span></li>
+          </ul>
+
+          <hr class="divider"/>
+          <span class="section-label">🌿 Eco footprint</span>
+          <ul>
+            <li><span>💧</span><span>1–12 glasses of drinking water</span></li>
+            <li><span>💡</span><span>1.5–8.5 hours of powering a 60W bulb</span></li>
+            <li><span>📱</span><span>8–51 full phone recharges</span></li>
+            <li><span>🌳</span><span>1–5 days for a tree to absorb the CO₂ emitted</span></li>
+          </ul>
+          <p class="eco-note">* These are just guesstimates, hard to calculate given the opacity around AI tech. Does not include model training cost.</p>
+
+          <div class="cta">
+            Omar isn't on social media anymore. He is out there somewhere touching virtual grass. No really. <a href="https://drive.google.com/file/d/10WL17B1Zm1oxAwOI-ms9DHNp26chFTJ3/view" target="_blank" rel="noopener">See for yourself →</a>
+          </div>
+        `
       },
       {
         emoji: "📚",
         title: "Meet the Glimmerwhims",
         subtitle: "An AI book to promote critical thinking",
-        body: `<p>Coming soon.</p>`
+        body: `
+          <p>I created a kids' book that encourages critical thinking because that will be the key skill in the age of AI. Ironically created with AI.</p>
+
+          <span class="section-label">✅ What worked</span>
+          <p>With some smart prompting and a lot of research on picture books (I am a volunteer librarian after all) the book text was super easy to generate. The images were quick and fun to create too. Although they needed some editing, most were very good.</p>
+
+          <span class="section-label">❌ What didn't work</span>
+          <p>While AI did the fun part of writing and illustrating the book, I had to do the grunt work of checking, editing, pagination, layout, resizing, etc. Wasn't AI supposed to make work easier? Instead, it's taken over the joy and the jobs.</p>
+
+          <span class="section-label">💡 What I learnt</span>
+          <div class="learnt-block">Know what you're doing before doing it with AI.</div>
+
+          <hr class="divider"/>
+          <span class="section-label">🛠 Tech stack</span>
+          <ul>
+            <li><span>✍️</span><span><strong>Research + writing</strong> — Gemini Pro</span></li>
+            <li><span>🎨</span><span><strong>Images</strong> — Midjourney</span></li>
+            <li><span>📐</span><span><strong>Layout + design</strong> — Illustrator</span></li>
+            <li><span>☁️</span><span><strong>Cloud</strong> — Google</span></li>
+          </ul>
+
+          <hr class="divider"/>
+          <span class="section-label">🌿 Eco footprint</span>
+          <ul>
+            <li><span>💧</span><span>2–8 glasses of drinking water</span></li>
+            <li><span>💡</span><span>5–20 hours of powering a 60W bulb</span></li>
+            <li><span>📱</span><span>20–80 full phone recharges</span></li>
+            <li><span>🌳</span><span>2–9 days for a tree to absorb the CO₂ emitted</span></li>
+          </ul>
+          <p class="eco-note">* These are just guesstimates, hard to calculate given the opacity around AI tech. Does not include model training cost.</p>
+        `
       }
     ];
 
